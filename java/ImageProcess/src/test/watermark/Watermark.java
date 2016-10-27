@@ -15,10 +15,10 @@ import javax.imageio.stream.FileImageOutputStream;
 public class Watermark {
 	public static void main(String[] args) {
 
-		String[][] textCover = new String[1][]; // ÎÄ×ÖË®Ó¡
+		String[][] textCover = new String[1][]; // æ–‡å­—æ°´å°
 		// for(int i = 0; i < tcount; i++) {
 		String[] text = new String[5];
-		text[0] = "²âÊÔ²âÊÔ²âÊÔ²âÊÔ²âÊÔ²âÊÔ²âÊÔ²âÊÔ²âÊÔ";
+		text[0] = "æµ‹è¯•æµ‹è¯•æµ‹è¯•æµ‹è¯•æµ‹è¯•æµ‹è¯•æµ‹è¯•æµ‹è¯•æµ‹è¯•";
 		text[1] = "446";
 		text[2] = "45";
 		text[3] = "1";
@@ -26,16 +26,16 @@ public class Watermark {
 		textCover[0] = text;
 		// }
 
-		String targetPic = "C:/Users/¹ùÅÊ²©/Pictures/53a4e6497a18c.jpg"; // Ä¿±êÍ¼Æ¬¾ø¶ÔÂ·¾¶
+		String targetPic = "C:/Users/éƒ­æ”€åš/Pictures/53a4e6497a18c.jpg"; // ç›®æ ‡å›¾ç‰‡ç»å¯¹è·¯å¾„
 		String[][] imageCover = new String[][] { { targetPic, "0", "0" } };
-		// ×ÖÌå¿âÎÄ¼şÂ·¾¶
+		// å­—ä½“åº“æ–‡ä»¶è·¯å¾„
 		// String fontBasePath =
 		// "/export/home/ilearn/app/product/as904/jdk/jre/lib/fonts/simsun.ttc";
-		// String fontName = "ËÎÌå";
+		// String fontName = "å®‹ä½“";
 		float alpha = 0.3f;
 		// boolean quality = true;
 
-		// ×ÖÌåÑÕÉ«
+		// å­—ä½“é¢œè‰²
 		Map<String, Color> colorMap = new HashMap<>();
 		colorMap.put("black", Color.black);
 		colorMap.put("red", Color.red);
@@ -49,24 +49,24 @@ public class Watermark {
 			//
 			// response.reset();
 			// response.setContentType("application/octet-stream;
-			// charset=UTF-8"); //ÉèÖÃ³Éapplication/x-msdownloadÒ²¿ÉÒÔ
+			// charset=UTF-8"); //è®¾ç½®æˆapplication/x-msdownloadä¹Ÿå¯ä»¥
 			//
 			// response.setHeader("Content-Disposition",
 			// "attachment;filename=license.jpg");
-			// //Èç¹ûÉèÖÃ³Éinline;filename=xxx.jpg£¬¾ÍÖ±½ÓÔÚÒ³ÃæÖĞ´ò¿ª
+			// //å¦‚æœè®¾ç½®æˆinline;filename=xxx.jpgï¼Œå°±ç›´æ¥åœ¨é¡µé¢ä¸­æ‰“å¼€
 
-			fos = new FileImageOutputStream(new File("C:/Users/¹ùÅÊ²©/Desktop/out.jpg"));
+			fos = new FileImageOutputStream(new File("C:/Users/éƒ­æ”€åš/Desktop/out.jpg"));
 
 			/*
 			 * String filename =
 			 * "/app_shared/mainpage/exam/exam_new/certImg/1111.jpg";//
-			 * ±£´æÎÄ¼şÂ·¾¶ºÍÎÄ¼şÃû OutputStream bos = new FileOutputStream(filename);//
-			 * ½¨Á¢Ò»¸öÉÏ´«ÎÄ¼şµÄÂ·¾¶
+			 * ä¿å­˜æ–‡ä»¶è·¯å¾„å’Œæ–‡ä»¶å OutputStream bos = new FileOutputStream(filename);//
+			 * å»ºç«‹ä¸€ä¸ªä¸Šä¼ æ–‡ä»¶çš„è·¯å¾„
 			 */
 			File img = new File(targetPic);
 			Image src = ImageIO.read(img);
-			int width = src.getWidth(null); // Í¼Æ¬¿í
-			int height = src.getHeight(null); // Í¼Æ¬¸ß
+			int width = src.getWidth(null); // å›¾ç‰‡å®½
+			int height = src.getHeight(null); // å›¾ç‰‡é«˜
 			BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 			Graphics2D g = image.createGraphics();
 			g.drawImage(src, 0, 0, width, height, null);
@@ -74,10 +74,10 @@ public class Watermark {
 				for (int i = 0; i < textCover.length; i++) {
 					if (isEmptyStr(textCover[i][1]) || isEmptyStr(textCover[i][2]))
 						continue;
-					// ´ÓÖ¸¶¨µÄ×Ö¿â´´½¨×ÖÌåÀà
+					// ä»æŒ‡å®šçš„å­—åº“åˆ›å»ºå­—ä½“ç±»
 					// Font font = Font.createFont(Font.TRUETYPE_FONT, new
 					// FileInputStream(new File(fontBasePath)));
-					// //ÉèÖÃ×ÖĞÎ¡¢ÑùÊ½ºÍ´óĞ¡
+					// //è®¾ç½®å­—å½¢ã€æ ·å¼å’Œå¤§å°
 					// font = Font.decode(fontName).deriveFont(Font.BOLD,
 					// Float.parseFloat(textCover[i][3]));
 					// g.setFont(font);
