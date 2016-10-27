@@ -8,7 +8,7 @@ public class DateUtil {
 	
 	
 	/**
-	 * µÃµ½Ò»ÌìµÄ¿ªÊ¼Ê±¼ä
+	 * å¾—åˆ°ä¸€å¤©çš„å¼€å§‹æ—¶é—´
 	 * @return
 	 */
 	public static Date getDayBegin() {
@@ -21,9 +21,9 @@ public class DateUtil {
 	}
 	
 	/**
-	 * Í¨¹ıÊ±¼äµÃµ½×Ö·û´®
+	 * é€šè¿‡æ—¶é—´å¾—åˆ°å­—ç¬¦ä¸²
 	 * @param d
-	 * @param isLongTime ³¤¸ñÊ½/¶Ì¸ñÊ½
+	 * @param isLongTime é•¿æ ¼å¼/çŸ­æ ¼å¼
 	 * @return
 	 */
 	public static String getStrByDate(Date d, Boolean isLongTime) {
@@ -41,7 +41,7 @@ public class DateUtil {
 	
 	
 	/**
-	 * Í¨¹ı×Ö·û´®»ñÈ¡Ê±¼ä
+	 * é€šè¿‡å­—ç¬¦ä¸²è·å–æ—¶é—´
 	 * @param date
 	 * @return
 	 */
