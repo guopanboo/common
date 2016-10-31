@@ -21,6 +21,20 @@ public class DateUtil {
 	}
 	
 	/**
+	 * 得到几天之前的开始时间
+	 * @return
+	 */
+	public static Date getDaysAgoBegin(int n) {
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.MILLISECOND, 001);
+		cal.set(Calendar.DATE, cal.get(Calendar.DATE) - n);
+		return cal.getTime();
+	}
+	
+	/**
 	 * 通过时间得到字符串
 	 * @param d
 	 * @param isLongTime 长格式/短格式
