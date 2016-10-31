@@ -35,6 +35,25 @@ public class DateUtil {
 	}
 	
 	/**
+	 * 自定义格式日期格式化
+	 * @param d
+	 * @param format
+	 * @return
+	 */
+	public static String getStrByDate(Date d, String format) {
+		if(d == null || isBlank(format)) {
+			return "";
+		}
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+			return dateFormat.format(d);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "";
+		}
+	}
+	
+	/**
 	 * 通过时间得到字符串
 	 * @param d
 	 * @param isLongTime 长格式/短格式
@@ -100,5 +119,9 @@ public class DateUtil {
 	
 	private static DateFormat InitSimpleDateFormat(String format) {
 		return new SimpleDateFormat(format);
+	}
+	
+	private static boolean isBlank(String str) {
+		return str == null ? true : "".equals(str);
 	}
 }
