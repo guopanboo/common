@@ -5,10 +5,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
-	
-	
+
 	/**
 	 * 得到一天的开始时间
+	 * 
 	 * @return
 	 */
 	public static Date getDayBegin() {
@@ -19,9 +19,10 @@ public class DateUtil {
 		cal.set(Calendar.MILLISECOND, 001);
 		return cal.getTime();
 	}
-	
+
 	/**
 	 * 得到几天之前的开始时间
+	 * 
 	 * @return
 	 */
 	public static Date getDaysAgoBegin(int n) {
@@ -33,15 +34,16 @@ public class DateUtil {
 		cal.set(Calendar.DATE, cal.get(Calendar.DATE) - n);
 		return cal.getTime();
 	}
-	
+
 	/**
 	 * 自定义格式日期格式化
+	 * 
 	 * @param d
 	 * @param format
 	 * @return
 	 */
 	public static String getStrByDate(Date d, String format) {
-		if(d == null || isBlank(format)) {
+		if (d == null || isBlank(format)) {
 			return "";
 		}
 		try {
@@ -52,11 +54,35 @@ public class DateUtil {
 			return "";
 		}
 	}
-	
+
+	/**
+	 * 返回日期对应的星期几
+	 * @param d
+	 * @return
+	 */
+	public static String getWeekByDate(Date d) {
+		if (d == null)
+			return "";
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(d);
+		switch(cal.get(Calendar.DAY_OF_WEEK)) {
+		case 1 : return "星期日";
+		case 2 : return "星期一";
+		case 3 : return "星期二";
+		case 4 : return "星期三";
+		case 5 : return "星期四";
+		case 6 : return "星期五";
+		case 7 : return "星期六";
+		default : return "";
+		}
+	}
+
 	/**
 	 * 通过时间得到字符串
+	 * 
 	 * @param d
-	 * @param isLongTime 长格式/短格式
+	 * @param isLongTime
+	 *            长格式/短格式
 	 * @return
 	 */
 	public static String getStrByDate(Date d, Boolean isLongTime) {
@@ -71,10 +97,10 @@ public class DateUtil {
 		}
 		return dateFormat.format(d);
 	}
-	
-	
+
 	/**
 	 * 通过字符串获取时间
+	 * 
 	 * @param date
 	 * @return
 	 */
@@ -105,7 +131,7 @@ public class DateUtil {
 		}
 		return null;
 	}
-	
+
 	private static Date FormatStringToDate(String format, String date) {
 		if (date == null) {
 			return null;
@@ -116,11 +142,11 @@ public class DateUtil {
 			return null;
 		}
 	}
-	
+
 	private static DateFormat InitSimpleDateFormat(String format) {
 		return new SimpleDateFormat(format);
 	}
-	
+
 	private static boolean isBlank(String str) {
 		return str == null ? true : "".equals(str);
 	}
