@@ -10,7 +10,7 @@ public class Encrypt {
 	 * @param strText
 	 * @return
 	 */
-	public String SHA256(final String strText) {
+	public static String SHA256(final String strText) {
 		return SHA(strText, "SHA-256");
 	}
 
@@ -20,7 +20,7 @@ public class Encrypt {
 	 * @param strText
 	 * @return
 	 */
-	public String SHA512(final String strText) {
+	public static String SHA512(final String strText) {
 		return SHA(strText, "SHA-512");
 	}
 
@@ -30,9 +30,11 @@ public class Encrypt {
 	 * @param strSourceText
 	 * @return
 	 */
-	private String SHA(final String strText, final String strType) {
+	private static String SHA(final String strText, final String strType) {
 		// 返回值
 		String strResult = null;
+		if(StringUtils.isBlank(strText))
+			return strResult;
 		// 是否是有效字符串
 		if (strText != null && strText.length() > 0) {
 			try {
