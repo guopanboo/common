@@ -15,7 +15,7 @@ public class MyThread implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
-			Thread.sleep(Math.round(Math.random()) * 1000);
+			Thread.sleep((Math.round(Math.random())) * 1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
